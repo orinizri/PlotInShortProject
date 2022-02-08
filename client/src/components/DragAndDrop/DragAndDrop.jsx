@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { arrangeData as organizeData } from '../../services/services';
 import { useXaxisState, useYaxisState } from "../../context/graph.context"
-
 import './drag-and-drop.css'
 
 const DragAndDrop = (props) => {

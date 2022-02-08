@@ -10,11 +10,9 @@ const PastedExcelInput = (props) => {
     const onPaste = (e) => {
         if (validation(e)) {
             setValidationWarning(false)
-            props.warning(validationWarning)
             return setPastedData(e.target.value)
         }
         setValidationWarning(true)
-        props.warning(validationWarning)
         return setPastedData('')
     };
 

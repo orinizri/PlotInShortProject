@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import './main.css'
-import About from '../About/About'
-import Header from '../../components/Header/Header'
 import { Routes, Route } from "react-router-dom";
-import SignUp from '../../components/SignUp/SignUp';
-import SignIn from '../../components/SignIn/SignIn';
+import About from '../About/About'
 import Profile from '../Profile/Profile';
 import Favorites from '../Favorites/Favorites';
-import PastedExcelInput from '../../components/PastedExcelInput/PastedExcelInput';
+import Header from '../../components/Header/Header'
+import SignUp from '../../components/SignUp/SignUp';
+import SignIn from '../../components/SignIn/SignIn';
 import Graph from '../../components/Graph/Graph';
 import DragAndDrop from '../../components/DragAndDrop/DragAndDrop';
 import Statistics from '../../components/Statistics/Statistics';
+import PastedExcelInput from '../../components/PastedExcelInput/PastedExcelInput';
+import './main.css'
 
 
 const Main = () => {
@@ -37,13 +37,13 @@ const Main = () => {
         setPresentWarning(true)
     }
 
-
+    // TODO: Set a new page for favorites -  save also in mongoose like 'task'
     return (
         <div className="main-container">
             <Routes>
                 <Route path='/' element={<>
                     <Header />
-                    <PastedExcelInput data={getData} warning={getWarning} />
+                    <PastedExcelInput data={getData} />
                     <div className='graph-dnd-container'>
                         <Graph sendFavorite={getFavorite} />
                         <DragAndDrop data={rawData} getData={getDataFromTable} />

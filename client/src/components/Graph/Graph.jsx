@@ -14,6 +14,8 @@ const Graph = (props) => {
     const [Xaxis, setXaxis] = useXaxisState()
     const [Yaxis, setYaxis] = useYaxisState()
 
+
+    // improve and send to services? with xAxis and yAxis?
     const setTitle = () => {
         if (!_.isEmpty(Yaxis) && !_.isEmpty(Xaxis)) {
             const yAxisTitle = keys(Yaxis).length === 1 ?
@@ -45,10 +47,10 @@ const Graph = (props) => {
             datasets: [
                 {
                     label: !_.isEmpty(Xaxis) ? `${keys(Xaxis)}` : 'y',
-                    data: (!_.isEmpty(Yaxis) ? values(Yaxis) : false) ||(!_.isEmpty(Xaxis) ? values(Xaxis) : []),
+                    data: (!_.isEmpty(Yaxis) ? values(Yaxis) : false) || (!_.isEmpty(Xaxis) ? values(Xaxis) : []),
                     backgroundColor: displayRandomColorBars(chartTypeLine, props),
                     borderWidth: 1
-                },
+                }, // add another data set?
                 // {
                 //     label: 'Dataset 1',
                 //     data: [1, 2, 34],
@@ -107,33 +109,26 @@ const Graph = (props) => {
             const newChartInstance = new Chartjs(chartContainer.current, chartConfig);
             setChartInstance(newChartInstance)
             return () => newChartInstance.destroy();
-        }
-
+        } // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [Yaxis, Xaxis, chartTypeLine]);
 
-
+    // tooltips or regular text?
     return (
         <div>
             <div>
-                {
-
-                    <div className="graph-area-container">
-                        {/* <div className="tooltip">Click and choose another column for the X axis</div> */}
-                        {<div className="options-container" >
-                            <button onClick={() => props.sendFavorite(chartConfig)}>Save to Favorites</button>
-                            <button onClick={() => setChartTypeLine(true)}>Chart type line</button>
-                            <button onClick={() => setChartTypeLine(false)}>Chart type bar</button>
-                        </div>}
-                        <div className="graph-container">
-                            <div className="canvas">
-                                <canvas ref={chartContainer}></canvas>
-                            </div>
-                        </div>
-                        <div className="chart-type-buttons">
+                <div className="graph-area-container"> 
+                    {/* <div className="tooltip">Click and choose another column for the X axis</div> */}
+                    <div className="options-container" >
+                        <button onClick={() => props.sendFavorite(chartConfig)}>Save to Favorites</button>
+                        <button onClick={() => setChartTypeLine(true)}>Chart type line</button>
+                        <button onClick={() => setChartTypeLine(false)}>Chart type bar</button>
+                    </div>
+                    <div className="graph-container">
+                        <div className="canvas">
+                            <canvas ref={chartContainer}></canvas>
                         </div>
                     </div>
-
-                }
+                </div>
             </div>
         </div>
     )
