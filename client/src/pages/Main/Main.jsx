@@ -10,6 +10,7 @@ import Favorites from '../Favorites/Favorites';
 import PastedExcelInput from '../../components/PastedExcelInput/PastedExcelInput';
 import Graph from '../../components/Graph/Graph';
 import DragAndDrop from '../../components/DragAndDrop/DragAndDrop';
+import Statistics from '../../components/Statistics/Statistics';
 
 
 const Main = () => {
@@ -47,6 +48,7 @@ const Main = () => {
                         <Graph sendFavorite={getFavorite} />
                         <DragAndDrop data={rawData} getData={getDataFromTable} />
                     </div>
+                    <Statistics yAxis={yAxis} xAxis={xAxis} />
                 </>
                 } />
                 <Route path='/sign-up' element={<>
