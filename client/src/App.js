@@ -1,19 +1,19 @@
 import './App.css';
 import { GraphProvider } from './context/graph.context';
 import { Routes, Route } from "react-router-dom";
-import About from "./pages/About/About";
+import Main from './pages/Main/Main';
 
 
 
 function App() {
   return (
-    <div className="App">
+    <main className="main">
       <GraphProvider>
-        <Routes>
-          <Route path='/' element={<About/>}/>
-        </Routes>
+        
+          <Main/>
+        
       </GraphProvider>
-    </div>
+    </main>
   );
 }
 
