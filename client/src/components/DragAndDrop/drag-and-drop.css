@@ -1,0 +1,111 @@
+.table-area {
+    border: 1px solid yellow;
+    position: absolute;
+    /* top: 25px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+}
+.table-area button {
+    background-color: rgb(255, 255, 255);
+    color:black;
+    font-family: 'BioRhyme', serif;
+    padding: 3px 10px;
+    margin: 5px;
+    border: 2px solid black;
+    max-height: 30px;
+    min-height: 30px;
+    max-width: 150px;
+    min-width: 150px;
+    padding: 3px 10px;
+    margin: 5px;
+}
+
+/* border-radius: 5px; */
+/* font-size: 1rem; */
+.draggable {
+    background-color: rgb(255, 255, 255);
+    color:black;
+    font-family: 'BioRhyme', serif;
+    padding: 3px 10px;
+    margin: 5px;
+    border: 2px solid black;
+    max-height: 30px;
+    min-height: 30px;
+    max-width: 150px;
+    min-width: 150px;
+    text-align: center; 
+    text-overflow: ellipsis;
+    background-color: rgb(88, 128, 236);
+    color: white;
+    margin: 5px;
+}
+.draggable:hover {
+    cursor: move;
+    background-color: rgb(32, 72, 182);
+}
+.columns-headers {
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    border-radius: 5px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.y-axis, .x-axis {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border:1px solid rgb(197, 197, 197);
+    border-radius: 3px;
+}
+.x-axis {
+    width: 46%;
+    height: 13%;
+    bottom: 0;
+    left: 32%;
+}
+.y-axis {
+    width: 3%;
+    height: 75%;
+    left: 25%;
+    top:0;
+}
+.draggable.xaxis:hover,
+.draggable.yaxis:hover {
+    cursor: move;
+}
+
+
+.draggable.xaxis {
+    max-width: 100%;
+    background-color: transparent;
+    color: rgb(88, 128, 236);
+    border: none;
+    font-weight: 700;
+}
+.draggable.yaxis {
+    font-weight: 700;
+    background-color: transparent;
+    color: rgb(88, 128, 236);
+    border: none;
+    padding: 15px 3px;
+    min-height: unset;
+    min-width: unset;
+    max-height: 90%;
+    max-width: unset;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    height: fit-content;
+    width: fit-content;
+}

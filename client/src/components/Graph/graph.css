@@ -1,0 +1,100 @@
+.options-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right:0;
+    z-index: 100;
+    border: 1px solid red;
+    height: 100%;
+    box-sizing: content-box;
+}
+.options-container > button {
+    background: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    background-color: rgb(165, 226, 250);;
+    color: black;
+    font-family: 'BioRhyme', serif;
+    padding: 3px 10px;
+    margin: 5px;
+    border: 2px solid black;
+    max-height: 35px;
+    min-height: 35px;
+    max-width: 170px;
+    min-width: 170px;
+    padding: 3px 10px;
+    margin: 5px;
+}
+
+.canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    margin-left: 5rem;
+    
+}
+.graph-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height:fit-content;
+}
+
+/* .graph-area-container .tooltip {
+    position: absolute;
+    top: 13%;
+    left: 5px;
+    background-color: violet;
+    z-index: 10;
+    padding: 2px 7px;
+    border-radius: 30px;
+    font-size: 1rem;
+    animation: hideAnimation 5s ease-in-out 1s;
+    font-family: 'BioRhyme', serif;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+}
+.graph-area-container .tooltip::after {
+    content: '';
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid violet;
+    border-left: 7px solid transparent;
+    border-top: 7px solid transparent;
+    position: absolute;
+    right: 58%;
+    bottom: 28px;
+} */
+
+/* @keyframes hideAnimation {
+    0%   {opacity: 1;}
+    90%   {opacity: 1;}
+    100% {opacity: 0;}
+}
+@media only screen and (max-width: 1000px){
+	.graph-area-container .tooltip {
+        top: 20%;
+    }
+    .canvas {
+        width:50%;
+    }    
+}
+@media only screen and (max-width: 450px){
+	.graph-area-container .tooltip {
+        top: 15%;
+        font-size: 0.7rem;
+    }
+    .graph-area-container .tooltip::after {
+        content: '';
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid violet;
+        border-left: 7px solid transparent;
+        border-top: 7px solid transparent;
+        position: absolute;
+        right: 40%;
+        bottom: 20px;
+    }
+} */

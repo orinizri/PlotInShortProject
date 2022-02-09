@@ -79,7 +79,7 @@ const DragAndDrop = (props) => {
                                 return (
                                     <Draggable style={{ minHeight: '30px' }} index={index} draggableId={Object.keys(column).toString()} key={Object.keys(column).toString()}>
                                         {(provided) => (
-                                            <div className='draggable headers' ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                            <div className='draggable headers buttons' ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                                                 {Object.keys(column)}
                                             </div>
                                         )}

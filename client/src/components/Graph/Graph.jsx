@@ -118,7 +118,7 @@ const Graph = (props) => {
             <div>
                 <div className="graph-area-container"> 
                     {/* <div className="tooltip">Click and choose another column for the X axis</div> */}
-                    <div className="options-container" >
+                    <div className="options-container buttons" >
                         <button onClick={() => props.sendFavorite(chartConfig)}>Save to Favorites</button>
                         <button onClick={() => setChartTypeLine(true)}>Chart type line</button>
                         <button onClick={() => setChartTypeLine(false)}>Chart type bar</button>

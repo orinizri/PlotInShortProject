@@ -1,0 +1,9 @@
+.graph-dnd-container {
+    margin-top: 10px;
+    position: relative;
+    border: 1px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}

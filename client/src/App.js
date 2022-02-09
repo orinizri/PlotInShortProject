@@ -1,4 +1,3 @@
-import './App.css';
 import { GraphProvider } from './context/graph.context';
 import Main from './pages/Main/Main';
 import { UserProvider } from './context/user.context';
