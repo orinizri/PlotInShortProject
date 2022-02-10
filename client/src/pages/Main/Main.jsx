@@ -11,9 +11,13 @@ import DragAndDrop from '../../components/DragAndDrop/DragAndDrop';
 import Statistics from '../../components/Statistics/Statistics';
 import PastedExcelInput from '../../components/PastedExcelInput/PastedExcelInput';
 import './main.css'
+import api from '../../api/api';
+import { UserState } from '../../context/user.context';
+import { headersToken } from '../../utils/utils';
 
 
 const Main = () => {
+    const [user, setUser] = UserState();
     const [rawData, setRawData] = useState('');
     const [xAxis, setXAxis] = useState([]);
     const [yAxis, setYAxis] = useState([]);
@@ -26,7 +30,16 @@ const Main = () => {
 
     const getWarning = (boolean) => setPresentWarning(boolean)
 
-    const getFavorite = (favorite) => setFavorites([...favorites, favorite])
+    const getFavorite = async (favorite) => {
+        setFavorites([...favorites, favorite])
+        try {
+            const token = localStorage.getItem('token');
+            const { data } = await api.post('/graph', {'description' : favorite, 'owner' : user._id }, headersToken(token));
+            console.log(data)
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     const getDataFromTable = (arrangedData) => setOrganizedData(arrangedData)
 
@@ -69,7 +82,7 @@ const Main = () => {
                 } />
                 <Route path='/favorites' element={<>
                     <Header />
-                    <Favorites /> </>
+                    <Favorites sendFavorites={favorites} getUpdatedFavorites={getUpdatedFavorites} /> </>
                 } />
             </Routes>
         </div>

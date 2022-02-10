@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const CardSchema = new mongoose.Schema({
     description : {
-        type: String,
+        type: Object,
         default: "default"
     },
     owner: {

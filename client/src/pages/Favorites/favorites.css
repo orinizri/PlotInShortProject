@@ -1,0 +1,46 @@
+
+.favorites-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.chart-container {
+    min-width: 200px;
+    width: 500px;
+    border: 3px solid var(--nav-button-border);
+    margin: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: var(--nav-button-bg);
+}
+h1 {
+    text-decoration: underline ;
+    text-decoration-color:var(--nav-button-border);
+    text-align: center;
+    font-family: 'BioRhyme', serif;
+    font-size: 2.5rem;
+    padding:0;
+    margin: 5px;
+    color: var(--favorites-header-color);
+}
+.favorite-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    margin : 5px;
+}
+@media only screen and (max-width: 450px){
+    .chart-container {
+        width:350px;
+    }
+    p{
+        margin-left: 15px;
+    }
+}
+@media only screen and (max-height: 450px) and (max-width: 750px){
+
+}

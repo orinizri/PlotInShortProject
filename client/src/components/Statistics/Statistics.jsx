@@ -35,27 +35,26 @@ const Statistics = (props) => {
             nums = [...array].sort((a, b) => a - b);
         return array.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
     };
-    console.log(yArray)
     return (
         <div className='statistics-container'>
                 {!_.isEmpty(Xaxis) && <>
             <div className='x-axis-container'>
                     <div><h4>{(keys(Xaxis)[0].toUpperCase() + keys(Xaxis).slice(1)).slice(0,20)}</h4></div>
                     <div><strong>Mean:</strong> {_.mean(xArray)}</div>
-                    <div><strong>Minimun:</strong>  {min(xArray)}</div>
-                    <div><strong>Maximum:</strong>  {max(xArray)}</div>
-                    <div><strong>Mode:</strong>  {mode(xArray)}</div>
-                    <div><strong>Median:</strong>  {median(xArray)}</div>
+                    <div><strong>Minimun:</strong> {min(xArray)}</div>
+                    <div><strong>Maximum:</strong> {max(xArray)}</div>
+                    <div><strong>Mode:</strong> {mode(xArray)}</div>
+                    <div><strong>Median:</strong> {median(xArray)}</div>
             </div>
                 </>}
                 {!_.isEmpty(Yaxis) && <>
             <div className='y-axis-container'>
                     <div><h4>{(keys(Yaxis)[0].toUpperCase() + keys(Yaxis).slice(1)).slice(0,20)}</h4></div>
                     <div><strong>Mean:</strong> {_.mean(yArray)} </div>
-                    <div><strong>Minimun:</strong>  {min(yArray)}</div>
-                    <div><strong>Maximum:</strong>  {max(yArray)}</div>
-                    <div><strong>Mode:</strong>  {mode(yArray)}</div>
-                    <div><strong>Median:</strong>  {median(yArray)}</div>
+                    <div><strong>Minimun:</strong> {min(yArray)}</div>
+                    <div><strong>Maximum:</strong> {max(yArray)}</div>
+                    <div><strong>Mode:</strong> {mode(yArray)}</div>
+                    <div><strong>Median:</strong> {median(yArray)}</div>
             </div>
                 </>}
         </div>

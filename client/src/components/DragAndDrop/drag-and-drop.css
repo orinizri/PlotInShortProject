@@ -39,13 +39,13 @@
     min-width: 150px;
     text-align: center; 
     text-overflow: ellipsis;
-    background-color: rgb(88, 128, 236);
-    color: white;
+    /* background-color: rgb(88, 128, 236); */
+    /* color: white; */
     margin: 5px;
 }
 .draggable:hover {
     cursor: move;
-    background-color: rgb(32, 72, 182);
+    /* background-color: rgb(32, 72, 182); */
 }
 .columns-headers {
     height:100%;
