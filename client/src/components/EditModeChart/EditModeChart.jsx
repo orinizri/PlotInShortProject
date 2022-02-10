@@ -1,16 +1,16 @@
 import { useEffect, useRef } from "react";
 import Chartjs from 'chart.js/auto';
 
-const EditModeChart = ({ deleteChartFromFavorites, text, offEditGraph, onUpdateTitleButton, chartConfig }) => {
+const EditModeChart = ({ deleteChartFromFavorites, offEditGraph, onUpdateTitleButton, chartConfig }) => {
     const chartRef = useRef(null)
     useEffect(() => {
-
         if (chartRef.current) {
             const newChartInstance = new Chartjs(chartRef.current, chartConfig.description);
             return () => newChartInstance.destroy();
         }
-        
+
     }, []);
+
     
     return (
 
@@ -25,7 +25,7 @@ const EditModeChart = ({ deleteChartFromFavorites, text, offEditGraph, onUpdateT
             </div>
             <div>
                 <label id="x-axis">Title: </label>
-                <input htmlFor="x-axis" defaultValue={text} />
+                <input htmlFor="x-axis" defaultValue={chartConfig.description.options.plugins.title.text} />
                 <button onClick={onUpdateTitleButton}>Update</button>
 
             </div>

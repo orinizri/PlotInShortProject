@@ -15,37 +15,45 @@ const Favorites = (props) => {
     const [editGraph, setEditGraph] = useState([]);
     const [editedGraphIndex, setEditedGraphIndex] = useState('');
 
-    const onEditGraph = (graph, index) => {
-        console.log(graph)
+    const onEditGraph = (chart, index) => {
+        console.log(chart)
         setEditGraphMode(true)
-        setEditGraph(graph.description)
-        setEditedGraphIndex(graph._id)
+        
+        setEditGraph(chart)
+        setEditedGraphIndex(chart._id)
     }
     const offEditGraph = () => {
         setEditGraphMode(false)
         setEditGraph([])
         setEditedGraphIndex('')
     }
-    const onUpdateTitleButton = (e) => {
+    const onUpdateTitleButton = async (e) => {
+        console.log(e.target.previousElementSibling.value)
         let updatedGraph = { ...editGraph }
-        updatedGraph.options.title.text = e.target.previousElementSibling.value
-        setEditGraph(updatedGraph)
-
+        updatedGraph.description.options.plugins.title.text = e.target.previousElementSibling.value
+        console.log(e.target.previousElementSibling.value)
+        const token = localStorage.getItem('token');
+            
+        const { data } = await api.post(`/graph/${editedGraphIndex}`, {title : e.target.previousElementSibling.value } , headersToken(token));
+        console.log(data)
+        console.log(updatedGraph)
+        const newFavorites = favorites.map((chart,index) => {
+            if (chart._id === editedGraphIndex) {
+                chart.description = data.description
+            }
+            return chart;
+        })
+        console.log("newFavs",newFavorites)
+        setFavorites(newFavorites)
+        setEditGraph(updatedGraph.description)
+        props.getUpdatedFavorites(newFavorites)
+        offEditGraph()
     }
     const setCharts = () => {
-        if (favorites) {
             return favorites.map((chart, index) => {
-                console.log(chart)
-                console.log(editedGraphIndex)
-                console.log(chart._id)
-
-                // if (chart.description.data.options.animation) chart.description.data.options.animation.duration = 0
-                return chart._id === editedGraphIndex ? <EditModeChart deleteChartFromFavorites={deleteChartFromFavorites} text={editGraph.options.title.text} offEditGraph={offEditGraph} onUpdateTitleButton={onUpdateTitleButton} chartConfig={favorites[index]} />
+                return chart._id === editedGraphIndex ? <EditModeChart deleteChartFromFavorites={deleteChartFromFavorites} offEditGraph={offEditGraph} onUpdateTitleButton={onUpdateTitleButton} chartConfig={favorites[index]} />
                     : <Chart deleteChartFromFavorites={deleteChartFromFavorites} onEditGraph={() => onEditGraph(chart, index)} chartConfig={favorites[index]} />
-                
             })
-        }
-        return <div></div>
     }
     const deleteChartFromFavorites = async (e) => {
         console.log(favorites)
@@ -56,6 +64,7 @@ const Favorites = (props) => {
         newFavorites.splice(e.target.parentElement.parentElement.id, 1);
         console.log(newFavorites)
         setFavorites(newFavorites)
+        props.getUpdatedFavorites(newFavorites)
     }
 
     useEffect(() => {
@@ -67,15 +76,16 @@ const Favorites = (props) => {
             setFavorites(data)
         }
         getFavoriteGraphs()
-
     }, [])
+
     return (
         <>
             {props.sendFavorites ? <h1>My Favorites</h1> : <h2>You need to choose favorite graphs</h2>}
             <div className="favorites-container">
-                {setCharts()}
+                {favorites && setCharts()}
             </div>
         </>
     )
 }
 export default Favorites;
+                // if (chart.description.data.options.animation) chart.description.data.options.animation.duration = 0

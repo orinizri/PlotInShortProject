@@ -4,8 +4,6 @@ import Chartjs from 'chart.js/auto';
 const Chart = ({ deleteChartFromFavorites, onEditGraph, chartConfig }) => {
     const chartRef = useRef(null)
 
-    console.log(chartConfig)
-
     useEffect(() => {
         if (chartRef.current) {
             const newChartInstance = new Chartjs(chartRef.current, chartConfig.description)

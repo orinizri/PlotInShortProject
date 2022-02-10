@@ -18,17 +18,18 @@ const Graph = (props) => {
     // improve and send to services? with xAxis and yAxis?
     const setTitle = () => {
         if (!_.isEmpty(Yaxis) && !_.isEmpty(Xaxis)) {
-            const yAxisTitle = keys(Yaxis).length === 1 ?
-                keys(Yaxis)[0].toUpperCase() :
-                keys(Yaxis)[0].toUpperCase() + keys(Yaxis).slice(1);
-            const xAxisTitle = keys(Xaxis).length === 1 ?
-                keys(Xaxis)[0].toUpperCase() :
-                keys(Xaxis)[0].toUpperCase() + keys(Xaxis).slice(1);
+            const yAxisTitle = keys(Yaxis)[0].length === 1 ?
+                keys(Yaxis)[0][0].toUpperCase() :
+                keys(Yaxis)[0][0].toUpperCase() + keys(Yaxis)[0].slice(1);
+                const xAxisTitle = keys(Xaxis)[0].length === 1 ?
+                keys(Xaxis)[0][0].toUpperCase() :
+                keys(Xaxis)[0][0].toUpperCase() + keys(Xaxis)[0].slice(1);
             return `${yAxisTitle.slice(0, 20)} versus ${xAxisTitle.slice(0, 20)}`
         } else if (!_.isEmpty(Xaxis)) {
-            const xAxisTitle = keys(Xaxis).length === 1 ?
-                keys(Xaxis)[0].toUpperCase() :
-                keys(Xaxis)[0].toUpperCase() + keys(Xaxis).slice(1);
+            console.log(keys(Xaxis)[0])
+            const xAxisTitle = keys(Xaxis)[0].length === 1 ?
+                keys(Xaxis)[0][0].toUpperCase() :
+                keys(Xaxis)[0][0].toUpperCase() + keys(Xaxis)[0].slice(1);
             return `${xAxisTitle.slice(0, 20)}`
         } else if (!_.isEmpty(Yaxis)) {
             const yAxisTitle = keys(Yaxis).length === 1 ?
@@ -64,12 +65,14 @@ const Graph = (props) => {
             legend: {
                 display: true,
             },
+            plugins : {
             title: {
                 display: true,
                 text: setTitle(),
                 fontSize: 16,
                 fontFamily: "'Nunito', 'sans-serif'",
-            },
+            }
+        },
             scales: {
                 yAxes: {
                     scaleLabel: {
@@ -111,7 +114,7 @@ const Graph = (props) => {
             return () => newChartInstance.destroy();
         } // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [Yaxis, Xaxis, chartTypeLine]);
-
+    console.log(chartConfig)
     // tooltips or regular text?
     return (
         <div>
