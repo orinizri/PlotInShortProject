@@ -27,31 +27,31 @@ const Favorites = (props) => {
         setEditGraph([])
         setEditedGraphIndex('')
     }
-    const onUpdateTitleButton = async (e) => {
-        console.log(e.target.previousElementSibling.value)
-        let updatedGraph = { ...editGraph }
-        updatedGraph.description.options.plugins.title.text = e.target.previousElementSibling.value
-        console.log(e.target.previousElementSibling.value)
-        const token = localStorage.getItem('token');
-            
-        const { data } = await api.post(`/graph/${editedGraphIndex}`, {title : e.target.previousElementSibling.value } , headersToken(token));
-        console.log(data)
-        console.log(updatedGraph)
-        const newFavorites = favorites.map((chart,index) => {
-            if (chart._id === editedGraphIndex) {
-                chart.description = data.description
-            }
-            return chart;
-        })
-        console.log("newFavs",newFavorites)
-        setFavorites(newFavorites)
-        setEditGraph(updatedGraph.description)
-        props.getUpdatedFavorites(newFavorites)
+    const onUpdateButton = async (e) => {
+        const title = (e.target.previousElementSibling.value)
+        console.log(e)
+        // let updatedGraph = { ...editGraph }
+        // updatedGraph.description.options.plugins.title.text = e.target.previousElementSibling.value
+        // console.log(e.target.previousElementSibling.value)
+        // const token = localStorage.getItem('token');
+        // const { data } = await api.post(`/graph/${editedGraphIndex}`, {title : e.target.previousElementSibling.value } , headersToken(token));
+        // console.log(data)
+        // console.log(updatedGraph)
+        // const newFavorites = favorites.map((chart,index) => {
+        //     if (chart._id === editedGraphIndex) {
+        //         chart.description = data.description
+        //     }
+        //     return chart;
+        // })
+        // console.log("newFavs",newFavorites)
+        // setFavorites(newFavorites)
+        // setEditGraph(updatedGraph.description)
+        // props.getUpdatedFavorites(newFavorites)
         offEditGraph()
     }
     const setCharts = () => {
             return favorites.map((chart, index) => {
-                return chart._id === editedGraphIndex ? <EditModeChart deleteChartFromFavorites={deleteChartFromFavorites} offEditGraph={offEditGraph} onUpdateTitleButton={onUpdateTitleButton} chartConfig={favorites[index]} />
+                return chart._id === editedGraphIndex ? <EditModeChart deleteChartFromFavorites={deleteChartFromFavorites} offEditGraph={offEditGraph} onUpdateButton={onUpdateButton} chartConfig={favorites[index]} />
                     : <Chart deleteChartFromFavorites={deleteChartFromFavorites} onEditGraph={() => onEditGraph(chart, index)} chartConfig={favorites[index]} />
             })
     }

@@ -21,7 +21,7 @@ const Graph = (props) => {
             const yAxisTitle = keys(Yaxis)[0].length === 1 ?
                 keys(Yaxis)[0][0].toUpperCase() :
                 keys(Yaxis)[0][0].toUpperCase() + keys(Yaxis)[0].slice(1);
-                const xAxisTitle = keys(Xaxis)[0].length === 1 ?
+            const xAxisTitle = keys(Xaxis)[0].length === 1 ?
                 keys(Xaxis)[0][0].toUpperCase() :
                 keys(Xaxis)[0][0].toUpperCase() + keys(Xaxis)[0].slice(1);
             return `${yAxisTitle.slice(0, 20)} versus ${xAxisTitle.slice(0, 20)}`
@@ -44,10 +44,10 @@ const Graph = (props) => {
     const chartConfig = {
         type: (chartTypeLine ? "line" : "bar"),
         data: {
-            labels: (!_.isEmpty(Xaxis) ? values(Xaxis) : index) || 'g',
+            labels: (!_.isEmpty(Xaxis) ? values(Xaxis) : index) || '',
             datasets: [
                 {
-                    label: !_.isEmpty(Xaxis) ? `${keys(Xaxis)}` : 'y',
+                    label: !_.isEmpty(Xaxis) ? `${keys(Xaxis)}` : '',
                     data: (!_.isEmpty(Yaxis) ? values(Yaxis) : false) || (!_.isEmpty(Xaxis) ? values(Xaxis) : []),
                     backgroundColor: displayRandomColorBars(chartTypeLine, props),
                     borderWidth: 1
@@ -65,20 +65,23 @@ const Graph = (props) => {
             legend: {
                 display: true,
             },
-            plugins : {
-            title: {
-                display: true,
-                text: setTitle(),
-                fontSize: 16,
-                fontFamily: "'Nunito', 'sans-serif'",
-            }
-        },
+            plugins: {
+                title: {
+                    display: true,
+                    text: setTitle(),
+                    fontSize: 16,
+                    fontFamily: "'Nunito', 'sans-serif'",
+                }
+            },
             scales: {
                 yAxes: {
+                    title: {
+                        display: true,
+                        text: (!_.isEmpty(Yaxis) ? `${keys(Yaxis)[0].toUpperCase() + keys(Yaxis).slice(1)}` : '')
+                    },
                     scaleLabel: {
                         display: true,
                         fontSize: 14,
-                        labelString: (!_.isEmpty(Yaxis) ? `${keys(Yaxis)[0].toUpperCase() + keys(Yaxis).slice(1)}` : ''),
                         fontFamily: "'Nunito', 'sans-serif'",
                     },
                     ticks: {
@@ -86,6 +89,10 @@ const Graph = (props) => {
                     }
                 },
                 xAxes: {
+                    title: {
+                        display: true,
+                        text: (!_.isEmpty(Xaxis) ? `${keys(Xaxis)[0].toUpperCase() + keys(Xaxis).slice(1)}` : '')
+                    },
                     ticks: {
                         beginAtZero: true
                     },
@@ -119,7 +126,7 @@ const Graph = (props) => {
     return (
         <div>
             <div>
-                <div className="graph-area-container"> 
+                <div className="graph-area-container">
                     {/* <div className="tooltip">Click and choose another column for the X axis</div> */}
                     <div className="options-container buttons" >
                         <button onClick={() => props.sendFavorite(chartConfig)}>Save to Favorites</button>
