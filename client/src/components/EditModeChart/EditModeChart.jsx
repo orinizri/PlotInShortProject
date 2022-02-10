@@ -3,7 +3,7 @@ import Chartjs from 'chart.js/auto';
 import './edit-mode-chart.css'
 
 
-const EditModeChart = ({ deleteChartFromFavorites, offEditGraph, onUpdateTitleButton: onUpdateButton, chartConfig }) => {
+const EditModeChart = ({ deleteChartFromFavorites, offEditGraph, onUpdateButton, chartConfig }) => {
     const chartRef = useRef(null)
     useEffect(() => {
         if (chartRef.current) {
