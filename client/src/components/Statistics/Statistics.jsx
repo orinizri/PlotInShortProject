@@ -41,7 +41,7 @@ const Statistics = (props) => {
                 {!_.isEmpty(Xaxis) && !isNaN(_.mean(xArray)) && <div className='x-axis-container'>
                     <h4>{(keys(Xaxis)[0].toUpperCase() + keys(Xaxis).slice(1)).slice(0,20)}</h4>
             <div className='x-axis-statistics'>
-                    <div><strong>Mean:</strong> {_.mean(xArray)}</div>
+                    <div><strong>Mean:</strong> {_.mean(xArray).toFixed(2)}</div>
                     <div><strong>Range:</strong> {min(xArray)} - {max(xArray)}</div>
                     <div><strong>Mode:</strong> {mode(xArray)}</div>
                     <div><strong>Median:</strong> {median(xArray)}</div>

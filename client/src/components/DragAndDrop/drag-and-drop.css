@@ -1,5 +1,4 @@
 .table-area {
-    /* border: 1px solid yellow; */
     position: absolute;
     /* top: 25px; */
     display: flex;
@@ -9,11 +8,11 @@
     height: 100%;
     box-sizing: content-box;
     font-family: 'BioRhyme', serif;
-
 }
+
 .table-area button {
     background-color: rgb(255, 255, 255);
-    color:black;
+    color: black;
     font-family: 'BioRhyme', serif;
     padding: 3px 10px;
     margin: 5px;
@@ -30,7 +29,7 @@
 /* font-size: 1rem; */
 .draggable {
     background-color: rgb(255, 255, 255);
-    color:black;
+    color: black;
     padding: 3px 10px;
     margin: 5px;
     border: 2px solid black;
@@ -38,28 +37,55 @@
     min-height: 30px;
     max-width: 150px;
     min-width: 150px;
-    text-align: center; 
+    text-align: center;
     text-overflow: ellipsis;
     /* background-color: rgb(88, 128, 236); */
     /* color: white; */
     margin: 5px;
-    
+
 }
+
 .draggable:hover {
     cursor: move;
     /* background-color: rgb(32, 72, 182); */
 }
+
 .columns-headers {
-    height:100%;
-    position:absolute;
-    left:0;
-    top:0;
+    /* border: 1px solid yellow; */
+    background-color: rgb(235, 235, 235);
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
     border-radius: 5px;
-    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    overflow: auto;
+    overflow: scroll;
+    overflow-x: hidden;
+    
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+.draggable.headers.buttons {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .y-axis, .x-axis {
@@ -72,28 +98,30 @@
     border-radius: 3px;
     background-color: rgb(235, 235, 235);
     text-overflow: ellipsis;
-
 }
+
 .y-axis:hover, .x-axis:hover {
     cursor: pointer;
 }
+
 .x-axis {
     width: 46%;
-    height: 9%;
-    bottom: 0;
+    height: 10%;
+    bottom: -8%;
     left: 29%;
 }
+
 .y-axis {
     width: 3%;
-    height: 65%;
-    left: 23%;
-    top: 20%;
+    height: 75%;
+    left: 22.8%;
+    top: 15%;
 }
+
 .draggable.xaxis:hover,
 .draggable.yaxis:hover {
     cursor: move;
 }
-
 
 .draggable.xaxis {
     max-width: 100%;
@@ -101,8 +129,9 @@
     color: rgb(53, 100, 230);
     border: none;
     font-weight: 700;
-    line-height: 2rem;
+    line-height: 1.7rem;
 }
+
 .draggable.yaxis {
     font-weight: 700;
     background-color: transparent;
@@ -117,17 +146,24 @@
     text-orientation: upright;
     height: fit-content;
     width: fit-content;
-    line-height: 1rem;
+    line-height: 0.4rem;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .dnd-instructions {
+    border: 2px solid rgba(57, 175, 211, 0.788);
     font-size: 0.7rem;
     color: gray;
+    position: absolute;
+    top:3%;
+    padding: 2px;
+    right:30%;
 }
 
 .dnd-instructions span {
     font-size: 0.7rem;
     color: rgba(57, 175, 211, 0.788);
 }
+
 /* rgb(86, 214, 253) */
