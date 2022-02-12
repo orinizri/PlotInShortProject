@@ -30,8 +30,9 @@
 .options-container > button:hover {
     background-color: rgb(26, 61, 158);
 }
+
 .canvas {
-    
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
