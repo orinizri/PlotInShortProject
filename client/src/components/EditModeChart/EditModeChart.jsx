@@ -20,7 +20,7 @@ const EditModeChart = ({ deleteChartFromFavorites, offEditGraph, onUpdateButton,
                 <canvas ref={chartRef}></canvas>
                 <div className="favorite-buttons">
                     <button onClick={deleteChartFromFavorites}>Delete</button>
-                    <button onClick={offEditGraph}>Set Edit Off</button>
+                    <button onClick={offEditGraph}>Edit Mode Off</button>
                 </div>
             </div>
             <div className='edit-options-container'>
@@ -36,10 +36,10 @@ const EditModeChart = ({ deleteChartFromFavorites, offEditGraph, onUpdateButton,
                     <label id="y-axis">Y Axis Title: </label>
                     <input htmlFor="y-axis" defaultValue={chartConfig.description.options.scales.yAxes.title.text} />
                 </div>
-                <div className='edit-options-show-legend-container'>
+                {/* <div className='edit-options-show-legend-container'>
                     <label id="show-legend">Show Legend </label>
-                    <input type='checkbox' htmlFor="show-legend" checked />
-                </div>
+                    <input type='checkbox' htmlFor="show-legend" defaultChecked />
+                </div> */}
                 <button onClick={onUpdateButton}>Update</button>
             </div>
         </div>

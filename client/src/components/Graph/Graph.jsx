@@ -52,13 +52,6 @@ const Graph = (props) => {
                     backgroundColor: displayRandomColorBars(chartTypeLine, props),
                     borderWidth: 1
                 }, // add another data set?
-                // {
-                //     label: 'Dataset 1',
-                //     data: [1, 2, 34],
-                //     backgroundColor: displayRandomColorBars(chartTypeLine, props),
-                // }
-
-                //
             ]
         },
         options: {
@@ -121,18 +114,19 @@ const Graph = (props) => {
             return () => newChartInstance.destroy();
         } // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [Yaxis, Xaxis, chartTypeLine]);
-    console.log(chartConfig)
+
     // tooltips or regular text?
     return (
         <div>
             <div>
                 <div className="graph-area-container">
                     {/* <div className="tooltip">Click and choose another column for the X axis</div> */}
+                    {(!_.isEmpty(Xaxis) || !_.isEmpty(Yaxis)) && 
                     <div className="options-container buttons" >
                         <button onClick={() => props.sendFavorite(chartConfig)}>Save to Favorites</button>
                         <button onClick={() => setChartTypeLine(true)}>Chart type line</button>
                         <button onClick={() => setChartTypeLine(false)}>Chart type bar</button>
-                    </div>
+                    </div>}
                     <div className="graph-container">
                         <div className="canvas">
                             <canvas ref={chartContainer}></canvas>

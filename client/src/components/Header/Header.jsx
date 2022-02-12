@@ -32,7 +32,7 @@ function Header() {
 
     return (
         <nav>
-            <span>Plot in Short! </span>
+            <span id="plot-in-short-header">Plot in Short! </span>
             <span className="buttons-container">
                 <Link to="/"><button className="home-button">Home</button></Link>
                 <Link to="/about" className="about-button"><button>About</button></Link>
@@ -41,7 +41,6 @@ function Header() {
                     <Link to="/favorites" className="favorites-button"><button>Favorites</button></Link>
                     <Link to="/profile" className="profile-button"><button>Profile</button></Link>
                         <Logout />
-                        <span>{` Logged In`}</span>
                     </> :
                     <>
                         <Link to="/sign-in" className="sign-in-button"><button>Sign In</button></Link>

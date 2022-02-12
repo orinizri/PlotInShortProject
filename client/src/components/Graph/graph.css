@@ -4,7 +4,7 @@
     position: absolute;
     right:0;
     z-index: 100;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 100%;
     box-sizing: content-box;
 }
@@ -13,18 +13,16 @@
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
-    /* background-color: rgb(165, 226, 250);; */
+    /* background-color: rgb(165, 226, 250); */
     color: black;
     font-family: 'BioRhyme', serif;
-    padding: 3px 10px;
+    padding: 0;
     margin: 5px;
     border: 2px solid black;
     max-height: 35px;
     min-height: 35px;
     max-width: 170px;
     min-width: 170px;
-    padding: 3px 10px;
-    margin: 5px;
 }
 
 .canvas {
@@ -32,12 +30,10 @@
     justify-content: center;
     align-items: center;
     width: 50vw;
-    height: 50vh;
-    margin-left: 5rem;
-    border: 1px solid blue;
+    height: 60vh;
 }
 .graph-container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;

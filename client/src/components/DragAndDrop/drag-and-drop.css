@@ -1,5 +1,5 @@
 .table-area {
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     position: absolute;
     /* top: 25px; */
     display: flex;
@@ -8,6 +8,8 @@
     width: 100%;
     height: 100%;
     box-sizing: content-box;
+    font-family: 'BioRhyme', serif;
+
 }
 .table-area button {
     background-color: rgb(255, 255, 255);
@@ -29,7 +31,6 @@
 .draggable {
     background-color: rgb(255, 255, 255);
     color:black;
-    font-family: 'BioRhyme', serif;
     padding: 3px 10px;
     margin: 5px;
     border: 2px solid black;
@@ -42,6 +43,7 @@
     /* background-color: rgb(88, 128, 236); */
     /* color: white; */
     margin: 5px;
+    
 }
 .draggable:hover {
     cursor: move;
@@ -53,7 +55,7 @@
     left:0;
     top:0;
     border-radius: 5px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -66,20 +68,26 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    border:1px solid rgb(197, 197, 197);
+    border: 2px solid rgb(219, 218, 218);
     border-radius: 3px;
+    background-color: rgb(235, 235, 235);
+    text-overflow: ellipsis;
+
+}
+.y-axis:hover, .x-axis:hover {
+    cursor: pointer;
 }
 .x-axis {
     width: 46%;
-    height: 13%;
+    height: 9%;
     bottom: 0;
-    left: 32%;
+    left: 29%;
 }
 .y-axis {
     width: 3%;
-    height: 75%;
-    left: 25%;
-    top:0;
+    height: 65%;
+    left: 23%;
+    top: 20%;
 }
 .draggable.xaxis:hover,
 .draggable.yaxis:hover {
@@ -90,22 +98,24 @@
 .draggable.xaxis {
     max-width: 100%;
     background-color: transparent;
-    color: rgb(88, 128, 236);
+    color: rgb(53, 100, 230);
     border: none;
     font-weight: 700;
+    line-height: 2rem;
 }
 .draggable.yaxis {
     font-weight: 700;
     background-color: transparent;
-    color: rgb(88, 128, 236);
+    color: rgb(53, 100, 230);
     border: none;
-    padding: 15px 3px;
+    /* padding: 15px 3px; */
     min-height: unset;
     min-width: unset;
-    max-height: 90%;
+    max-height: 100%;
     max-width: unset;
     writing-mode: vertical-rl;
     text-orientation: upright;
     height: fit-content;
     width: fit-content;
+    line-height: 1rem;
 }

@@ -75,6 +75,7 @@ const DragAndDrop = (props) => {
                 {organizedData.length > 1 && <Droppable droppableId="headers">
                     {(provided) => (
                         <div className="columns-headers" {...provided.droppableProps} ref={provided.innerRef} >
+                            Drag Your variables to the graph axes areas
                             {organizedData.length > 1 && headers.headers.map((column, index) => {
                                 return (
                                     <Draggable style={{ minHeight: '30px' }} index={index} draggableId={Object.keys(column).toString()} key={Object.keys(column).toString()}>

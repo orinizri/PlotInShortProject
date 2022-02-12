@@ -49,29 +49,30 @@ const Favorites = (props) => {
                         graphCopy.description.options.plugins.title.text = input.value
                     };
                     break;
+                case 'x-axis':
+                    console.log(graphCopy.description.options.scales.xAxes.title.text)
+                    console.log(input.value);
+                    if (graphCopy.description.options.scales.xAxes.title.text !== input.value) {
+                        graphCopy.description.options.scales.xAxes.title.text = input.value
+                    };
+                    break;
+                case 'y-axis':
+                    console.log(graphCopy.description.options.scales.yAxes.title.text)
+                    console.log(input.value);
+                    if (graphCopy.description.options.scales.yAxes.title.text !== input.value) {
+                        graphCopy.description.options.scales.yAxes.title.text = input.value
+                    };
+                    break;
                 default:
                     return;
             }
-            //map over favorites to update
-            // graphCopy.description.options.plugins.title.text === input
+            console.log(graphCopy)
+            const editedGraphIndexInFavorites = (favorites.findIndex((graph) => graph._id === graphCopy._id))
+            console.log(editedGraphIndexInFavorites)
+            favorites[editedGraphIndexInFavorites] = graphCopy
+            setFavorites(favorites)
+            offEditGraph()
         }
-        // updatedGraph.description.options.plugins.title.text = title
-        // console.log(title)
-        // const token = localStorage.getItem('token');
-        // const { data } = await api.post(`/graph/${editedGraphIndex}`, {title : title } , headersToken(token));
-        // console.log(data)
-        // console.log(updatedGraph)
-        // const newFavorites = favorites.map((chart,index) => {
-        //     if (chart._id === editedGraphIndex) {
-        //         chart.description = data.description
-        //     }
-        //     return chart;
-        // })
-        // console.log("newFavs",newFavorites)
-        // setFavorites(newFavorites)
-        // setEditGraph(updatedGraph.description)
-        // props.getUpdatedFavorites(newFavorites)
-        // offEditGraph()
     }
     const setCharts = () => {
         return favorites.map((chart, index) => {

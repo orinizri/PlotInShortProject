@@ -1,21 +1,23 @@
 .statistics-container {
     font-family: 'BioRhyme', serif;
-    border: 1px solid rgb(141, 141, 142);
     position: absolute;
-    bottom: 10px;
+    bottom: 3px;
     width:98%;
-    height:7rem;
+    height: 7rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(141, 141, 142);
 }
 .statistics-container h4 {
     padding:0;
     margin:0;
-    background-color: lightgray;
+    background-color: rgb(235, 234, 234);
     text-align: center;
+    color: rgb(88, 128, 236);
+    border-radius: 3px;
+    letter-spacing: 0.5rem;
 }
 .x-axis-container,
 .y-axis-container {
