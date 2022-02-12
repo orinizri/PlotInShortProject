@@ -4,20 +4,22 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    
+    align-items: center;
 }
 .chart-container {
     min-width: 200px;
     width: 500px;
-    border: 3px solid var(--nav-button-border);
-    margin: 10px;
+    border: 3px solid black;
+    margin: 30px;
     border-radius: 5px;
     padding: 5px;
-    background-color: var(--nav-button-bg);
+    background-color: rgb(255, 255, 255);
+    -webkit-box-shadow: 0px 1px 3px 0px rgb(88, 88, 88);
+    height: min-content;
 }
 h1 {
     text-decoration: underline ;
-    text-decoration-color:var(--nav-button-border);
+    text-decoration-color:rgb(76, 121, 245);
     text-align: center;
     font-family: 'BioRhyme', serif;
     font-size: 2.5rem;

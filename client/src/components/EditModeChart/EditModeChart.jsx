@@ -22,7 +22,7 @@ const EditModeChart = ({ deleteChartFromFavorites, offEditGraph, onUpdateButton,
                     <button onClick={deleteChartFromFavorites}>Delete</button>
                     <button onClick={offEditGraph}>Edit Mode Off</button>
                 </div>
-            </div>
+            
             <div className='edit-options-container'>
                 <div className='edit-options-title-container'>
                     <label id="graph-title">Title: </label>
@@ -41,6 +41,7 @@ const EditModeChart = ({ deleteChartFromFavorites, offEditGraph, onUpdateButton,
                     <input type='checkbox' htmlFor="show-legend" defaultChecked />
                 </div> */}
                 <button onClick={onUpdateButton}>Update</button>
+            </div>
             </div>
         </div>
     )

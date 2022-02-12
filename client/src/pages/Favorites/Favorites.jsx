@@ -28,7 +28,6 @@ const Favorites = (props) => {
         setEditedGraphIndex('')
     }
     const onUpdateButton = async (e) => {
-        // const title = (e.target.previousElementSibling.value)
         const inputs = [...e.target.parentElement.children]
             .filter((input) => input.tagName === 'DIV')
             .map((input) => {
@@ -40,7 +39,6 @@ const Favorites = (props) => {
         console.log(inputs)
         const graphCopy = { ...editGraph }
         for (let input of inputs) {
-            // console.log(input)
             switch (input.label) {
                 case 'graph-title':
                     console.log(graphCopy.description.options.plugins.title.text)
@@ -66,9 +64,7 @@ const Favorites = (props) => {
                 default:
                     return;
             }
-            console.log(graphCopy)
             const editedGraphIndexInFavorites = (favorites.findIndex((graph) => graph._id === graphCopy._id))
-            console.log(editedGraphIndexInFavorites)
             favorites[editedGraphIndexInFavorites] = graphCopy
             setFavorites(favorites)
             offEditGraph()
@@ -81,13 +77,11 @@ const Favorites = (props) => {
         })
     }
     const deleteChartFromFavorites = async (e) => {
-        console.log(favorites)
         const token = localStorage.getItem('token');
         const graphID = e.target.parentElement.parentElement.id
         await api.delete(`/graph/${graphID}`, headersToken(token));
         let newFavorites = [...favorites];
         newFavorites.splice(e.target.parentElement.parentElement.id, 1);
-        console.log(newFavorites)
         setFavorites(newFavorites)
         props.getUpdatedFavorites(newFavorites)
     }

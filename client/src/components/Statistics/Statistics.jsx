@@ -39,7 +39,7 @@ const Statistics = (props) => {
         <div className='statistics-container'>
                 {!_.isEmpty(Xaxis) && <>
             <div className='x-axis-container'>
-                    <div><h4>{(keys(Xaxis)[0].toUpperCase() + keys(Xaxis).slice(1)).slice(0,20)}</h4></div>
+                    <h4>{(keys(Xaxis)[0].toUpperCase() + keys(Xaxis).slice(1)).slice(0,20)}</h4>
                     <div><strong>Mean:</strong> {_.mean(xArray)}</div>
                     <div><strong>Minimun:</strong> {min(xArray)}</div>
                     <div><strong>Maximum:</strong> {max(xArray)}</div>
@@ -48,8 +48,8 @@ const Statistics = (props) => {
             </div>
                 </>}
                 {!_.isEmpty(Yaxis) && <>
+                    <h4>{(keys(Yaxis)[0].toUpperCase() + keys(Yaxis).slice(1)).slice(0,20)}</h4>
             <div className='y-axis-container'>
-                    <div><h4>{(keys(Yaxis)[0].toUpperCase() + keys(Yaxis).slice(1)).slice(0,20)}</h4></div>
                     <div><strong>Mean:</strong> {_.mean(yArray)} </div>
                     <div><strong>Minimun:</strong> {min(yArray)}</div>
                     <div><strong>Maximum:</strong> {max(yArray)}</div>

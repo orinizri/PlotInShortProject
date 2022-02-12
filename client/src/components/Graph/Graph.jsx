@@ -74,7 +74,7 @@ const Graph = (props) => {
                     },
                     scaleLabel: {
                         display: true,
-                        fontSize: 14,
+                        fontSize: 16,
                         fontFamily: "'Nunito', 'sans-serif'",
                     },
                     ticks: {
@@ -84,10 +84,12 @@ const Graph = (props) => {
                 xAxes: {
                     title: {
                         display: true,
-                        text: (!_.isEmpty(Xaxis) ? `${keys(Xaxis)[0].toUpperCase() + keys(Xaxis).slice(1)}` : '')
+                        text: (!_.isEmpty(Xaxis) ? `${keys(Xaxis)[0].toUpperCase() + keys(Xaxis).slice(1)}` : ''),
+                        
                     },
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        fontSize: 20,
                     },
                     scaleLabel: {
                         display: true,

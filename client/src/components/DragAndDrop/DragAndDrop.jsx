@@ -75,7 +75,7 @@ const DragAndDrop = (props) => {
                 {organizedData.length > 1 && <Droppable droppableId="headers">
                     {(provided) => (
                         <div className="columns-headers" {...provided.droppableProps} ref={provided.innerRef} >
-                            {headers.xAxis.length === 0 && headers.yAxis.length === 0 && <div className='dnd-instructions'>*Drag your variable to the graph axes areas and see what happens!</div>}
+                            {headers.xAxis.length === 0 && headers.yAxis.length === 0 && <div className='dnd-instructions'>*Drag your variable to the <span>graph axes areas</span> and see what happens!</div>}
                             {organizedData.length > 1 && headers.headers.map((column, index) => {
                                 return (
                                     <Draggable style={{ minHeight: '30px' }} index={index} draggableId={Object.keys(column).toString()} key={Object.keys(column).toString()}>
