@@ -39,7 +39,7 @@ function Header() {
                 {user ?
                     <>
                     <Link to="/favorites" className="favorites-button"><button>Favorites</button></Link>
-                    <Link to="/profile" className="profile-button"><button>Profile</button></Link>
+                    {/* <Link to="/profile" className="profile-button"><button>Profile</button></Link> */}
                         <Logout />
                     </> :
                     <>

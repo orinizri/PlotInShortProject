@@ -3,7 +3,7 @@ dotenv.config()
 
 
 const CorsConfig = {
-    origin:["http://localhost:3000", "https://localhost:3000"]
+    origin:["http://localhost:3000", "https://localhost:3000", 'https://plot-in-short-project.herokuapp.com/', 'http://plot-in-short-project.herokuapp.com/']
 }
 
 const { MONGOOSE_URI } = process.env
