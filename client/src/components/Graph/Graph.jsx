@@ -42,14 +42,14 @@ const Graph = (props) => {
     }
 
     const chartConfig = {
-        type: (chartTypeLine ? "line" : "bar"),
+        type: (chartTypeLine ? "line" : "bar"), 
         data: {
             labels: (!_.isEmpty(Xaxis) ? values(Xaxis) : index) || '',
             datasets: [
                 {
                     label: !_.isEmpty(Xaxis) ? `${keys(Xaxis)}` : '',
                     data: (!_.isEmpty(Yaxis) ? values(Yaxis) : false) || (!_.isEmpty(Xaxis) ? values(Xaxis) : []),
-                    backgroundColor: displayRandomColorBars(chartTypeLine, props),
+                    backgroundColor: displayRandomColorBars(props),
                     borderWidth: 1
                 }, // add another data set?
             ]

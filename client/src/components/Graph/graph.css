@@ -13,18 +13,22 @@
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
-    /* background-color: rgb(165, 226, 250); */
-    color: black;
+    background-color: rgb(27, 86, 248);
+    color: white;
     font-family: 'BioRhyme', serif;
     padding: 0;
     margin: 5px;
-    border: 2px solid black;
-    max-height: 35px;
-    min-height: 35px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    max-height: 30px;
+    min-height: 30px;
     max-width: 170px;
     min-width: 170px;
+    line-height: 1rem;
 }
-
+.options-container > button:hover {
+    background-color: rgb(26, 61, 158);
+}
 .canvas {
     display: flex;
     justify-content: center;

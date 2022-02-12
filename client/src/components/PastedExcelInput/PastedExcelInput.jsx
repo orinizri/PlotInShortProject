@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
+import './pasted-excel-input.css'
 
 const PastedExcelInput = (props) => {
     const [pastedData, setPastedData] = useState('')
@@ -38,8 +38,8 @@ const PastedExcelInput = (props) => {
 
     return (
         <>
-            <div>you can easily create the plot you need, paste your excel data below and try it out!</div>
             <div className="get-input">
+            <div className='instructions'>you can easily create the plot you need, try it out!</div>
                 <label htmlFor="getData">Paste Your Data from Excel Here: </label>
                 <input ref={inputRef} id="getData" onChange={(e) => onPaste(e)} />
                 {validationWarning && <div style={{ color: 'red' }}>Columns names must be unique</div>}

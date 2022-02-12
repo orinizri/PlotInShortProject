@@ -11,14 +11,12 @@ export const arrangeData = (data) => {
     return rows
 }
 
-export const displayRandomColorBars = (chartTypeLine, props) => {
-    if (chartTypeLine) {
+export const displayRandomColorBars = (props) => {
         let x = Math.floor(Math.random() * 256);
         let y = 100 + Math.floor(Math.random() * 256);
         let z = 50 + Math.floor(Math.random() * 256);
         let bgColor = "rgb(" + x + "," + y + "," + z + ")";
         return bgColor
-    }
     if (Object.keys(props.sendData)[0]) {
         return Object.values(props.sendData)[0].map((bar, index) => {
             let x = Math.floor(Math.random() * 256);
