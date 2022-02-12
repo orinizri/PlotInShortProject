@@ -31,13 +31,14 @@ const SignUp = () => {
     return (
         <div className='sign-up-container'>
             <h2>Create an Account</h2>
+            <h3>Keep your favorite graphs in one place.</h3>
             <label htmlFor='name'>Name: </label>
             <input id='name' />
             <label htmlFor='email'>Email: </label>
             <input id='email' />
             <label htmlFor='password'>Password: </label>
             <input id='password' />
-            <button onClick={e => signUp(e)}>Submit</button>
+            <button onClick={e => signUp(e)}>Create Account</button>
         </div>
     )
 }

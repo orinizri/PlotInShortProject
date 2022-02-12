@@ -118,6 +118,8 @@
     height: fit-content;
     width: fit-content;
     line-height: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .dnd-instructions {
     font-size: 0.7rem;

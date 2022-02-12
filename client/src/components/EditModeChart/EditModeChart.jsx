@@ -15,7 +15,7 @@ const EditModeChart = ({ deleteChartFromFavorites, offEditGraph, onUpdateButton,
 
     return (
 
-        <div key={chartConfig._id}>
+        <div key={'edit' + chartConfig._id}>
             <div className="chart-container" id={chartConfig._id}>
                 <canvas ref={chartRef}></canvas>
                 <div className="favorite-buttons">

@@ -28,6 +28,7 @@ const Favorites = (props) => {
         setEditedGraphIndex('')
     }
     const onUpdateButton = async (e) => {
+        // const title = (e.target.previousElementSibling.value)
         const inputs = [...e.target.parentElement.children]
             .filter((input) => input.tagName === 'DIV')
             .map((input) => {
@@ -39,6 +40,7 @@ const Favorites = (props) => {
         console.log(inputs)
         const graphCopy = { ...editGraph }
         for (let input of inputs) {
+            // console.log(input)
             switch (input.label) {
                 case 'graph-title':
                     console.log(graphCopy.description.options.plugins.title.text)
@@ -64,16 +66,20 @@ const Favorites = (props) => {
                 default:
                     return;
             }
+            console.log(graphCopy)
             const editedGraphIndexInFavorites = (favorites.findIndex((graph) => graph._id === graphCopy._id))
+            console.log(editedGraphIndexInFavorites)
             favorites[editedGraphIndexInFavorites] = graphCopy
             setFavorites(favorites)
             offEditGraph()
         }
     }
     const setCharts = () => {
+        console.log(favorites)
         return favorites.map((chart, index) => {
-            return chart._id === editedGraphIndex ? <EditModeChart deleteChartFromFavorites={deleteChartFromFavorites} offEditGraph={offEditGraph} onUpdateButton={onUpdateButton} chartConfig={favorites[index]} />
-                : <Chart deleteChartFromFavorites={deleteChartFromFavorites} onEditGraph={() => onEditGraph(chart, index)} chartConfig={favorites[index]} />
+            return chart._id === editedGraphIndex ? 
+            <EditModeChart deleteChartFromFavorites={deleteChartFromFavorites} offEditGraph={offEditGraph} onUpdateButton={onUpdateButton} chartConfig={favorites[index]} /> :
+            <Chart deleteChartFromFavorites={deleteChartFromFavorites} onEditGraph={() => onEditGraph(chart, index)} chartConfig={favorites[index]} />
         })
     }
     const deleteChartFromFavorites = async (e) => {
@@ -89,7 +95,6 @@ const Favorites = (props) => {
     useEffect(() => {
         const getFavoriteGraphs = async () => {
             const token = localStorage.getItem('token');
-
             const { data } = await api.get("/graphs", headersToken(token));
             setFavorites(data)
         }

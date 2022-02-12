@@ -9,7 +9,8 @@ const authentication = async (req,res,next) => {
         const token = req.header('Authorization').replace('Bearer ','')
         const decoded = jwt.verify(token, 'random')
         const user = await User.findOne({ _id : decoded._id , 'tokens.token' : token}) 
-        console.log(decoded)
+        console.log(user)
+        console.log(user.token)
         if (!user) {
             throw new Error('not authorized')
         }

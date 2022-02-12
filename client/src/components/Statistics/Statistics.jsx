@@ -25,7 +25,7 @@ const Statistics = (props) => {
         for (const number of array) {
             numCounter[number] = numCounter[number] ? numCounter[number] + 1 : 1;
         }
-        if (Math.max(Object.values(numCounter)[0]) === 1) {
+        if (Math.max(Object.values(numCounter)) === 1) {
             return '-'
         }
         return Object.keys(numCounter)[Object.values(numCounter).indexOf(Math.max(...Object.values(numCounter)))]
@@ -35,28 +35,27 @@ const Statistics = (props) => {
             nums = [...array].sort((a, b) => a - b);
         return array.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
     };
+
     return (
         <div className='statistics-container'>
-                {!_.isEmpty(Xaxis) && <>
-            <div className='x-axis-container'>
+                {!_.isEmpty(Xaxis) && !isNaN(_.mean(xArray)) && <div className='x-axis-container'>
                     <h4>{(keys(Xaxis)[0].toUpperCase() + keys(Xaxis).slice(1)).slice(0,20)}</h4>
+            <div className='x-axis-statistics'>
                     <div><strong>Mean:</strong> {_.mean(xArray)}</div>
-                    <div><strong>Minimun:</strong> {min(xArray)}</div>
-                    <div><strong>Maximum:</strong> {max(xArray)}</div>
+                    <div><strong>Range:</strong> {min(xArray)} - {max(xArray)}</div>
                     <div><strong>Mode:</strong> {mode(xArray)}</div>
                     <div><strong>Median:</strong> {median(xArray)}</div>
             </div>
-                </>}
-                {!_.isEmpty(Yaxis) && <>
+                </div>}
+                {!_.isEmpty(Yaxis) && !isNaN(_.mean(yArray)) && <div className='y-axis-container'>
                     <h4>{(keys(Yaxis)[0].toUpperCase() + keys(Yaxis).slice(1)).slice(0,20)}</h4>
-            <div className='y-axis-container'>
+            <div className='y-axis-statistics'>
                     <div><strong>Mean:</strong> {_.mean(yArray)} </div>
-                    <div><strong>Minimun:</strong> {min(yArray)}</div>
-                    <div><strong>Maximum:</strong> {max(yArray)}</div>
+                    <div><strong>Range:</strong> {min(yArray)} - {max(yArray)}</div>
                     <div><strong>Mode:</strong> {mode(yArray)}</div>
                     <div><strong>Median:</strong> {median(yArray)}</div>
             </div>
-                </>}
+                </div>}
         </div>
     )
 }

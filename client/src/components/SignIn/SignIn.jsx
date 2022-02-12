@@ -1,8 +1,8 @@
 import { UserState } from "../../context/user.context";
 import api from '../../api/api'
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
+import './sign-in.css'
 
 const SignIn = () => {
     const [user, setUser] = UserState();
@@ -10,8 +10,8 @@ const SignIn = () => {
 
     const login = async (e) => { //o@rr.i 123
         e.preventDefault();
-        let password = e.target.previousElementSibling.value;
-        let email = e.target.parentElement.children[1].value;
+        let password = e.target.parentElement.children[4].value;
+        let email = e.target.parentElement.children[2].value;
         const userLogin = {
             email,
             password
@@ -26,21 +26,21 @@ const SignIn = () => {
         }
     }
     useEffect(()=> {
-        if (user) {
+        if (user && user.token) {
             navigate('/')
         } // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
 
     return (
         <div className='sign-in-container'>
-            <>
+            <h2>Sign In</h2>
             <label htmlFor="email">Email: </label>
             <input id='email' />
             <label htmlFor="password">Password: </label>
             <input id='password' />
             <button onClick={(e) => login(e)}>Submit</button>
+            {user && !user.token && <div className='error-message'>{Object.values(user)[0]}</div>}
             <div>Not registered yet? <Link to="/sign-up">Create an Account</Link></div>
-            </>
         </div>
     )
 }
