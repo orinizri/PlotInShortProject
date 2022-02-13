@@ -50,7 +50,7 @@ const Statistics = (props) => {
                 {!_.isEmpty(Yaxis) && !isNaN(_.mean(yArray)) && <div className='y-axis-container'>
                     <h4>{(keys(Yaxis)[0].toUpperCase() + keys(Yaxis).slice(1)).slice(0,20)}</h4>
             <div className='y-axis-statistics'>
-                    <div><strong>Mean:</strong> {_.mean(yArray)} </div>
+                    <div><strong>Mean:</strong> {_.mean(yArray).toFixed(2)} </div>
                     <div><strong>Range:</strong> {min(yArray)} - {max(yArray)}</div>
                     <div><strong>Mode:</strong> {mode(yArray)}</div>
                     <div><strong>Median:</strong> {median(yArray)}</div>
