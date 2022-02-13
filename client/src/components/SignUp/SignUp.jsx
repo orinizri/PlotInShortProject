@@ -1,9 +1,11 @@
 import { UserState } from "../../context/user.context";
 import api from '../../api/api'
 import './sign-up.css';
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
     const [user, setUser] = UserState();
+    const navigate = useNavigate();
 
     const signUp = async (e) => { //o@r.iiiiii computer
         e.preventDefault();
@@ -22,6 +24,7 @@ const SignUp = () => {
             setUser(user.data);
             console.log(user)
             localStorage.setItem('token', token);
+            navigate('/')
         } catch (err) {
             console.log(err);
         }
