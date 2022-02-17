@@ -7,7 +7,7 @@ const SignUp = () => {
     const [user, setUser] = UserState();
     const navigate = useNavigate();
 
-    const signUp = async (e) => { //o@r.iiiiii computer
+    const signUp = async (e) => {
         e.preventDefault();
         console.log(e)
         let name = e.target.parentElement.children[2].value;
