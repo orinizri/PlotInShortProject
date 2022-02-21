@@ -5,8 +5,12 @@ import { displayRandomColorBars } from '../../services/services'
 import { useXaxisState, useYaxisState } from "../../context/graph.context"
 import * as _ from "lodash"
 import { keys, values } from '../../services/services'
+import { UserState } from '../../context/user.context';
+import api from '../../api/api';
+import { headersToken } from '../../utils/utils';
 
 const Graph = (props) => {
+    const [user, setUser] = UserState();
     const chartContainer = useRef(null);
     const [chartInstance, setChartInstance] = useState(null);
     const [index, setIndex] = useState([]);
@@ -102,7 +106,23 @@ const Graph = (props) => {
         }
     };
 
-
+    useEffect(() => {
+        const getUser = async () => {
+            const token = localStorage.getItem('token');
+            const { data } = await api.get("/users/me", headersToken(token));
+            setUser(data);
+        }
+        const invokeUser = async () => {
+            try {
+                if (!localStorage.getItem('token')) return;
+                await getUser()
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        invokeUser()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [localStorage.getItem('token')])
 
 
     useEffect(() => {
@@ -125,7 +145,7 @@ const Graph = (props) => {
                     {/* <div className="tooltip">Click and choose another column for the X axis</div> */}
                     {(!_.isEmpty(Xaxis) || !_.isEmpty(Yaxis)) && 
                     <div className="options-container buttons" >
-                        <button onClick={() => props.sendFavorite(chartConfig)}>Save to Favorites</button>
+                        {user && <button onClick={() => props.sendFavorite(chartConfig)}>Save to Favorites</button>}
                         <button onClick={() => setChartTypeLine(true)}>Chart type line</button>
                         <button onClick={() => setChartTypeLine(false)}>Chart type bar</button>
                     </div>}

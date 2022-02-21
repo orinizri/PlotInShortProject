@@ -25,11 +25,14 @@
     max-width: 170px;
     min-width: 170px;
     line-height: 1rem;
+    transition: 0.2s all;
 }
 .options-container > button:hover {
     background-color: rgb(26, 61, 158);
 }
-
+.options-container > button:active {
+    transform: scale(0.98);
+}
 .canvas {
     margin-top: 10px;
     display: flex;
