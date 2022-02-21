@@ -1,5 +1,4 @@
 .options-container {
-    
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -37,7 +36,7 @@
     justify-content: center;
     align-items: center;
     width: 50vw;
-    height: 50vh;
+    height: 47vh;
 }
 .graph-container {
     margin-top:5px;
