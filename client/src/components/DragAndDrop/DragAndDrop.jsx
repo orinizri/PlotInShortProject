@@ -20,6 +20,7 @@ const DragAndDrop = (props) => {
     useEffect(() => {
         const rows = organizeData(props.data)
         setOrganizedDataByRows(rows)
+        
         let organizedData = rows[0].map((element, index) => {
             let updatedData = [];
             for (let i = 1; i < rows.length; i++) {
@@ -29,6 +30,7 @@ const DragAndDrop = (props) => {
         })
         setOrganizedData(organizedData)
         props.getData(organizedData)
+        props.dataToTable(organizedDataByRows)
         const columnsHeaders = [...organizedData]
         setHeaders({ ...headers, headers: columnsHeaders })
     }, [props.data])

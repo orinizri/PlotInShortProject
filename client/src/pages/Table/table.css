@@ -1,0 +1,40 @@
+.table-container {
+    max-height: 100%;
+    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
+    font-family: 'BioRhyme', serif;
+    font-weight: 500;
+
+}
+
+table {
+    width: 100%;
+    min-width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    padding: 0;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+th, td {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 0.5px solid black;
+    padding: 5px;
+}
+
+table th {
+    line-height: 2rem;
+    font-size: 1.5rem;
+    background-color: var(--nav-button-bg);
+    color:var(--favorites-header-color);
+}
+
+tr:hover {
+    background-color: rgb(27, 86, 248);
+}
+
