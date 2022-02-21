@@ -21,8 +21,10 @@ const SignIn = () => {
             const token = await data.token
             setUser(data);
             localStorage.setItem('token', token);
+            console.log("signed in successfully")
         } catch (err) {
             console.log(err);
+            console.log("sign in error")
         }
     }
     useEffect(()=> {
