@@ -22,9 +22,6 @@ const Main = () => {
     const [rawData, setRawData] = useState('');
     const [xAxis, setXAxis] = useState([]);
     const [yAxis, setYAxis] = useState([]);
-
-
-    const [organizedDataToTable, setOrganizedDataToTable] = useState([]);
     const [organizedData, setOrganizedData] = useState([]);
     const [favorites, setFavorites] = useState([]);
     const [presentWarning, setPresentWarning] = useState(false);
@@ -36,9 +33,7 @@ const Main = () => {
         setFavorites([...favorites, favorite])
         try {
             const token = localStorage.getItem('token');
-            console.log("token",token)
             const { data } = await api.post('/graph', {'description' : favorite, 'owner' : user._id }, headersToken(token));
-            console.log("data",data)
         } catch (e) {
             console.log(e)
         }
@@ -50,13 +45,9 @@ const Main = () => {
 
     const getData = (data) => {
         setRawData(data)
-        console.log(data)
         localStorage.setItem('raw-data', data);
 
         setPresentWarning(true)
-    }
-    const dataToTable = (datafromGraph) => {
-        setOrganizedDataToTable(datafromGraph)
     }
     // TODO: Set a new page for favorites -  save also in mongoose like 'task'
     return (
@@ -67,7 +58,7 @@ const Main = () => {
                     <PastedExcelInput data={getData} />
                     <div className='graph-dnd-container'>
                         <Graph sendFavorite={getFavorite} />
-                        <DragAndDrop data={rawData} getData={getDataFromDnd} dataToTable={dataToTable} />
+                        <DragAndDrop data={rawData} getData={getDataFromDnd} />
                     </div>
                     <Statistics yAxis={yAxis} xAxis={xAxis} />
                 </>
@@ -86,8 +77,8 @@ const Main = () => {
                 } />
                 <Route path='/table' element={<>
                     <Header />
-                    <button><Link to='/'>Back</Link></button>
-                    <Table data={organizedDataToTable}/> </>
+                    <button><Link to='/'>New</Link></button>
+                    <Table data={organizedData}/> </>
                 } />
                 <Route path='/about' element={<>
                     <Header />

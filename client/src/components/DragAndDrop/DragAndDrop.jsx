@@ -30,7 +30,6 @@ const DragAndDrop = (props) => {
         })
         setOrganizedData(organizedData)
         props.getData(organizedData)
-        props.dataToTable(organizedDataByRows)
         const columnsHeaders = [...organizedData]
         setHeaders({ ...headers, headers: columnsHeaders })
     }, [props.data])

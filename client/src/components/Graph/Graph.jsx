@@ -32,7 +32,6 @@ const Graph = (props) => {
                 keys(Xaxis)[0][0].toUpperCase() + keys(Xaxis)[0].slice(1);
             return `${yAxisTitle.slice(0, 20)} versus ${xAxisTitle.slice(0, 20)}`
         } else if (!_.isEmpty(Xaxis)) {
-            console.log(keys(Xaxis)[0])
             const xAxisTitle = keys(Xaxis)[0].length === 1 ?
                 keys(Xaxis)[0][0].toUpperCase() :
                 keys(Xaxis)[0][0].toUpperCase() + keys(Xaxis)[0].slice(1);
@@ -157,7 +156,7 @@ const Graph = (props) => {
                         {user && <button onClick={() => props.sendFavorite(chartConfig)}>Save to Favorites</button>}
                         <button onClick={() => setChartTypeLine(true)}>Chart type line</button>
                         <button onClick={() => setChartTypeLine(false)}>Chart type bar</button>
-                        {rawData && <button><Link to='/table'>Watch Raw Data</Link></button>}
+                        {rawData && <button><Link to='/table' target="_blank">Watch Raw Data</Link></button>}
                     </div>}
                     <div className="graph-container">
                         <div className="canvas">

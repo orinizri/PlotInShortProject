@@ -7,7 +7,6 @@ import { UserState } from '../../context/user.context';
 import { headersToken } from '../../utils/utils';
 import './favorites.css'
 
-
 const Favorites = (props) => {
     const chartContainer = useRef([]);
     const [favorites, setFavorites] = useState([]);
@@ -16,7 +15,6 @@ const Favorites = (props) => {
     const [editedGraphIndex, setEditedGraphIndex] = useState('');
 
     const onEditGraph = (chart, index) => {
-        console.log(chart)
         setEditGraphMode(true)
 
         setEditGraph(chart)
@@ -28,7 +26,6 @@ const Favorites = (props) => {
         setEditedGraphIndex('')
     }
     const onUpdateButton = async (e) => {
-        // const title = (e.target.previousElementSibling.value)
         const inputs = [...e.target.parentElement.children]
             .filter((input) => input.tagName === 'DIV')
             .map((input) => {
@@ -37,28 +34,20 @@ const Favorites = (props) => {
                     value: input.children[1].value
                 }
             })
-        console.log(inputs)
         const graphCopy = { ...editGraph }
         for (let input of inputs) {
-            // console.log(input)
             switch (input.label) {
                 case 'graph-title':
-                    console.log(graphCopy.description.options.plugins.title.text)
-                    console.log(input.value);
                     if (graphCopy.description.options.plugins.title.text !== input.value) {
                         graphCopy.description.options.plugins.title.text = input.value
                     };
                     break;
                 case 'x-axis':
-                    console.log(graphCopy.description.options.scales.xAxes.title.text)
-                    console.log(input.value);
                     if (graphCopy.description.options.scales.xAxes.title.text !== input.value) {
                         graphCopy.description.options.scales.xAxes.title.text = input.value
                     };
                     break;
                 case 'y-axis':
-                    console.log(graphCopy.description.options.scales.yAxes.title.text)
-                    console.log(input.value);
                     if (graphCopy.description.options.scales.yAxes.title.text !== input.value) {
                         graphCopy.description.options.scales.yAxes.title.text = input.value
                     };
@@ -66,16 +55,13 @@ const Favorites = (props) => {
                 default:
                     return;
             }
-            console.log(graphCopy)
             const editedGraphIndexInFavorites = (favorites.findIndex((graph) => graph._id === graphCopy._id))
-            console.log(editedGraphIndexInFavorites)
             favorites[editedGraphIndexInFavorites] = graphCopy
             setFavorites(favorites)
             offEditGraph()
         }
     }
     const setCharts = () => {
-        console.log(favorites)
         return favorites.map((chart, index) => {
             return chart._id === editedGraphIndex ? 
             <div key={chart._id}><EditModeChart deleteChartFromFavorites={deleteChartFromFavorites} offEditGraph={offEditGraph} onUpdateButton={onUpdateButton} chartConfig={favorites[index]} /></div> :
@@ -111,4 +97,3 @@ const Favorites = (props) => {
     )
 }
 export default Favorites;
-                // if (chart.description.data.options.animation) chart.description.data.options.animation.duration = 0

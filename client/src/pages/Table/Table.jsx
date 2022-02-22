@@ -13,21 +13,6 @@ const Table = (props) => {
         })
         return rows
     }
-// TODO: HIGHLIGHT COLUMN (MAYBE WITH ONLY CSS - :after)
-    const selectColumnHeader = (e) => {
-        let columnTarget = e.target.textContent
-        if (props.xAxisState) {
-            const xAxisValue = arrangedData.filter(item=> {
-                console.log(Object.keys(item))
-                return Object.keys(item)[0] === columnTarget
-            })
-            props.getXAxisColumn(xAxisValue)
-            console.log(xAxisValue)
-        } else {
-            props.selectedColumn(columnTarget)
-        }
-    }
-
     useEffect(() => {
         const rawData = localStorage.getItem('raw-data')
         const rows = arrangeData(rawData)
@@ -48,7 +33,7 @@ const Table = (props) => {
                 <thead>
                     <tr>
                         {arrangedData.length>1 && Object.values(arrangedData).map((element,index) => {
-                            return <th key={Object.keys(element)[0]} onClick={e=>selectColumnHeader(e)}>{Object.keys(element)}</th>
+                            return <th key={Object.keys(element)[0]}>{Object.keys(element)}</th>
                         })}
                     </tr>
                 </thead>

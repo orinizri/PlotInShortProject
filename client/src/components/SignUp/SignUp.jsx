@@ -9,7 +9,6 @@ const SignUp = () => {
 
     const signUp = async (e) => {
         e.preventDefault();
-        console.log(e.target.parentElement.children)
         let name = e.target.parentElement.children[3].value;
         let email = e.target.parentElement.children[5].value;
         let password = e.target.parentElement.children[7].value;
@@ -18,12 +17,10 @@ const SignUp = () => {
             email : email,
             password: password
         }
-        console.log(userSignUp)
         try {
             const user = await api.post('/users', userSignUp);
             const token = await user.data.token
             setUser(user.data);
-            console.log(user)
             localStorage.setItem('token', token);
             navigate('/')
         } catch (err) {
