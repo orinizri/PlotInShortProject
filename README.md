@@ -17,12 +17,17 @@
  <img src="https://i.ibb.co/NVXymyj/Plot-In-Short-Diagram-drawio.png" alt="Data Exploration Project logo"></a>
 </div>
 
+
 ## 🧐 About <a name = "about"></a>
 
 In short, data is fun!</br>
 The purpose of this website is to allow graph plotting in an easy and convenient way, with no prior knowledge!</br>
+
 First, copy a table from your Excel to the input field in the website.</br>
 Then, Drag your variables to the graph axes to create graph you need.</br>
+<div align="center">
+ <img src="https://im5.ezgif.com/tmp/ezgif-5-106eaec07c.gif" alt="Data Exploration Project logo"></a>
+</div>
 At the left of the screen, the graph can be changed to line or bar graph styles.</br>
 Users can register, sign in and out in order to manage their favorite graphs.</br>
 The graphs can be saved in favorites and their title, X axis and Y axis titles can be edited there.</br>
