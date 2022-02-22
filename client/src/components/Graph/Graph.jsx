@@ -8,6 +8,7 @@ import { keys, values } from '../../services/services'
 import { UserState } from '../../context/user.context';
 import api from '../../api/api';
 import { headersToken } from '../../utils/utils';
+import { Link } from 'react-router-dom';
 
 const Graph = (props) => {
     const [user, setUser] = UserState();
@@ -17,6 +18,7 @@ const Graph = (props) => {
     const [chartTypeLine, setChartTypeLine] = useState(true)
     const [Xaxis, setXaxis] = useXaxisState()
     const [Yaxis, setYaxis] = useYaxisState()
+    const [rawData, setRawDataForTable] = useState('')
 
 
     // improve and send to services? with xAxis and yAxis?
@@ -124,6 +126,15 @@ const Graph = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [localStorage.getItem('token')])
 
+    useEffect(()=> {
+        try {
+            const rawDataForTable = localStorage.getItem('raw-data');
+            setRawDataForTable(rawDataForTable)
+        } catch (error) {
+            
+        }
+    }, [localStorage.getItem('raw-data')])
+
 
     useEffect(() => {
         if ((!_.isEmpty(Xaxis)) && (Xaxis)) {
@@ -137,17 +148,16 @@ const Graph = (props) => {
         } // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [Yaxis, Xaxis, chartTypeLine]);
 
-    // tooltips or regular text?
     return (
         <div>
             <div>
                 <div className="graph-area-container">
-                    {/* <div className="tooltip">Click and choose another column for the X axis</div> */}
                     {(!_.isEmpty(Xaxis) || !_.isEmpty(Yaxis)) && 
                     <div className="options-container buttons" >
                         {user && <button onClick={() => props.sendFavorite(chartConfig)}>Save to Favorites</button>}
                         <button onClick={() => setChartTypeLine(true)}>Chart type line</button>
                         <button onClick={() => setChartTypeLine(false)}>Chart type bar</button>
+                        {rawData && <button><Link to='/table'>Watch Raw Data</Link></button>}
                     </div>}
                     <div className="graph-container">
                         <div className="canvas">

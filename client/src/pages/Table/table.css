@@ -30,11 +30,11 @@ th, td {
 table th {
     line-height: 2rem;
     font-size: 1.5rem;
-    background-color: var(--nav-button-bg);
-    color:var(--favorites-header-color);
+    background-color: rgb(153, 180, 255);
 }
+tr:nth-child(even) {background-color: #ffffff;}
 
 tr:hover {
-    background-color: rgb(27, 86, 248);
+    background-color: rgb(167, 182, 228);
 }
 

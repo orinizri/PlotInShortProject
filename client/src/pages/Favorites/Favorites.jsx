@@ -78,8 +78,8 @@ const Favorites = (props) => {
         console.log(favorites)
         return favorites.map((chart, index) => {
             return chart._id === editedGraphIndex ? 
-            <EditModeChart deleteChartFromFavorites={deleteChartFromFavorites} offEditGraph={offEditGraph} onUpdateButton={onUpdateButton} chartConfig={favorites[index]} /> :
-            <Chart deleteChartFromFavorites={deleteChartFromFavorites} onEditGraph={() => onEditGraph(chart, index)} chartConfig={favorites[index]} />
+            <div key={chart._id}><EditModeChart deleteChartFromFavorites={deleteChartFromFavorites} offEditGraph={offEditGraph} onUpdateButton={onUpdateButton} chartConfig={favorites[index]} /></div> :
+            <div key={chart._id}><Chart deleteChartFromFavorites={deleteChartFromFavorites} onEditGraph={() => onEditGraph(chart, index)} chartConfig={favorites[index]}/></div>
         })
     }
     const deleteChartFromFavorites = async (e) => {

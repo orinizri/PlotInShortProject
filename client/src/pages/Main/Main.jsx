@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import About from '../About/About'
 import Profile from '../Profile/Profile';
 import Favorites from '../Favorites/Favorites';
@@ -85,6 +85,7 @@ const Main = () => {
                 } />
                 <Route path='/table' element={<>
                     <Header />
+                    <button><Link to='/'>Back</Link></button>
                     <Table data={organizedDataToTable}/> </>
                 } />
                 <Route path='/about' element={<>

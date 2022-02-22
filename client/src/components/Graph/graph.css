@@ -22,10 +22,16 @@
     border-radius: 10px;
     max-height: 30px;
     min-height: 30px;
-    max-width: 170px;
-    min-width: 170px;
+    max-width: 180px;
+    min-width: 180px;
     line-height: 1rem;
     transition: 0.2s all;
+}
+.options-container > button a {
+    color: white;
+
+    text-overflow: ellipsis;
+
 }
 .options-container > button:hover {
     background-color: rgb(26, 61, 158);

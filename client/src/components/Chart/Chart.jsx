@@ -13,7 +13,7 @@ const Chart = ({ deleteChartFromFavorites, onEditGraph, chartConfig }) => {
     }, []);
 
     return (
-            <div className="chart-container" id={chartConfig._id} key={chartConfig._id + 'chart'}>
+            <div className="chart-container" id={chartConfig._id} key={chartConfig._id}>
                 <canvas ref={chartRef}></canvas>
                 <div className="favorite-buttons">
                     <button onClick={deleteChartFromFavorites}>Delete</button>

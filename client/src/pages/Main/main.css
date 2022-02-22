@@ -9,3 +9,9 @@ body {
     align-items: center;
     height: fit-content;
 }
+button a {
+    padding: 5px;
+    font-family: 'BioRhyme', serif;
+    text-decoration: none !important;
+    margin: 10px;
+}
