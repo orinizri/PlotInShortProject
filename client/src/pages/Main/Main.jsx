@@ -36,8 +36,9 @@ const Main = () => {
         setFavorites([...favorites, favorite])
         try {
             const token = localStorage.getItem('token');
+            console.log("token",token)
             const { data } = await api.post('/graph', {'description' : favorite, 'owner' : user._id }, headersToken(token));
-            console.log(data)
+            console.log("data",data)
         } catch (e) {
             console.log(e)
         }

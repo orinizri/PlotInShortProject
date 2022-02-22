@@ -9,15 +9,16 @@ const SignUp = () => {
 
     const signUp = async (e) => {
         e.preventDefault();
-        console.log(e)
-        let name = e.target.parentElement.children[2].value;
-        let email = e.target.parentElement.children[4].value;
-        let password = e.target.parentElement.children[6].value;
+        console.log(e.target.parentElement.children)
+        let name = e.target.parentElement.children[3].value;
+        let email = e.target.parentElement.children[5].value;
+        let password = e.target.parentElement.children[7].value;
         const userSignUp = {
-            name,
-            email,
-            password
+            name : name,
+            email : email,
+            password: password
         }
+        console.log(userSignUp)
         try {
             const user = await api.post('/users', userSignUp);
             const token = await user.data.token

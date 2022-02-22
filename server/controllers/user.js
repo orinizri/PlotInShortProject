@@ -4,6 +4,7 @@ import { getUsers, validatePasswordCongruency } from '../services/index.js'
 
 const createNewUser = async (req, res) => {
     try {
+        console.log(req.body)
         const user = new User(req.body);
         await user.save()
         const token = await user.generateAuthToken() // user is instance of User

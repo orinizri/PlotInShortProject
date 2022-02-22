@@ -105,7 +105,7 @@ const Favorites = (props) => {
         <>
             {props.sendFavorites ? <h1>My Favorites</h1> : <h2>You need to choose favorite graphs</h2>}
             <div className="favorites-container">
-                {favorites && setCharts()}
+                {favorites.length > 0 && setCharts()}
             </div>
         </>
     )
