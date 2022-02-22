@@ -19,16 +19,16 @@
 
 ## 🧐 About <a name = "about"></a>
 
-In short, data is fun! 
-The purpose of this website is to allow graph plotting in an easy and convenient way, with no prior knowledge!
-First, copy a table from your Excel to the input field in the website.
-Then, Drag your variables to the graph axes to create graph you need.
-At the left of the screen, the graph can be changed to line or bar graph styles.
-Users can register, sign in and out in order to manage their favorite graphs.
-The graphs can be saved in favorites and their title, X axis and Y axis titles can be edited there.
+In short, data is fun!</br>
+The purpose of this website is to allow graph plotting in an easy and convenient way, with no prior knowledge!</br>
+First, copy a table from your Excel to the input field in the website.</br>
+Then, Drag your variables to the graph axes to create graph you need.</br>
+At the left of the screen, the graph can be changed to line or bar graph styles.</br>
+Users can register, sign in and out in order to manage their favorite graphs.</br>
+The graphs can be saved in favorites and their title, X axis and Y axis titles can be edited there.</br>
 Statistical descriptives is presented at the bottom of every graph created (if the variable is numeric).
 It includes average, mode, median and range.
-In the future, I would like to add linear regression plot and an option to present more variables in the same graph.
+In the future, I would like to add linear regression plot and an option to present more variables in the same graph.</br>
 
 
 ## 🚀 Deployment <a name = "deployment"></a>
